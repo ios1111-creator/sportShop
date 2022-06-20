@@ -1,9 +1,8 @@
 import {from, Observable} from "rxjs";
 import {Product} from "./product";
-import Order = jasmine.Order;
 import {Injectable} from "@angular/core";
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class StaticDataSource {
   private products: Product[] = [
     new Product(1, "Product 1", "Category 1", "Product 1 (Category 1)", 100),
@@ -27,8 +26,5 @@ export class StaticDataSource {
     return from([this.products]);
   }
 
-  saveOrder(order: Order): Observable<Order> {
-    console.log(JSON.stringify(order));
-    return from([order]);
-  }
+
 }
