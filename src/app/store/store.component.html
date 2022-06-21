@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="navbar navbar-inverse bg-inverse" style="background: black;">
+      <a class="navbar-brand" style=" color: white">SKLEP SPORTOWY</a>
+    </div>
+  </div>
+
+<div class="row">
+<div class="col-3 p-2 ">
+  <div class="col-xs-3 bg-info p-a-1 categories">{{categories.length}} kategorie</div>
+
+</div>
+  <div class="col-9">
+    <div >
+      <div *ngFor="let product of products" class="card m-1 p-1 bg-light">
+        <h4 class="card-header">{{product.name}}
+          <span class="badge badge-pill badge-primary float-right">{{product.price | currency:"zł":true:"2.2-2"}}</span>
+        </h4>
+        <div class="card-text bg-white p-1"> {{product.description}}</div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+</div>
