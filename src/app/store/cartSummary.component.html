@@ -1,0 +1,15 @@
+<div>
+  <small style=" color:white">
+    Basket
+    <span *ngIf="cart.itemCount >0" style=" color: white;">
+      {{cart.itemCount}} product
+      {{cart.cartPrice | currency: "zł" : true:"2.2-2"}}
+    </span>
+    <span *ngIf="cart.itemCount ==0" style=" color:white">
+      empty
+    </span>
+  </small>
+  <button style=" color:white;background: black" [disabled]="cart.itemCount== 0" routerLink="/cart">
+    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+  </button>
+</div>
