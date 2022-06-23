@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import {ProductRepository} from "./product.repository";
 import {StaticDataSource} from "./static.datasource";
 import {CartModel} from "./cart.model";
+import { OrderModel } from './order.model';
+import {OrderRepository} from "./order.repository";
 
 
 
@@ -14,7 +16,9 @@ import {CartModel} from "./cart.model";
   providers: [
     ProductRepository,
     StaticDataSource,
-    CartModel
+    CartModel,
+    OrderModel,
+    OrderRepository
   ]
 })
 export class ModelModule { }

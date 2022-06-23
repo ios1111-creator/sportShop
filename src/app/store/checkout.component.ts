@@ -1,8 +1,30 @@
 import {Component} from "@angular/core";
+import {OrderRepository} from "../model/order.repository";
+import {OrderModel} from "../model/order.model";
+import {NgForm} from "@angular/forms";
 
 @Component({
-  template:`<div class="bg-info p-a-1"><h3>Submit an order</h3></div>`
+  templateUrl: "checkout.component.html",
+  styleUrls: ["checkout.component.css"]
 })
-export class CheckoutComponent{
+export class CheckoutComponent {
+  orderSent: boolean = false;
+  submitted: boolean = false;
 
+
+  constructor(public repository: OrderRepository,
+              public order: OrderModel) {
+
+  }
+
+  submitOrder(form: NgForm) {
+    this.submitted = true;
+    if (form.valid) {
+      this.repository.saveOrder(this.order).subscribe(order => {
+        this.order.clear();
+        this.orderSent = true;
+        this.submitted = false;
+      })
+    }
+  }
 }
