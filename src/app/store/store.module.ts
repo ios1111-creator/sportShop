@@ -32,7 +32,7 @@ import {CounterDirective} from "./counter.directive";
         path: "cart", component: CartDetailComponent, canActivate: []
       },
       {
-        path: "checkout", component: CheckoutComponent, canActivate: [StoreFirstGuard]
+        path: "checkout", component: CheckoutComponent, canActivate: []
       },
       {
         path: "**", redirectTo: "/store"
