@@ -2,6 +2,7 @@
   <div class="row">
     <div class="navbar navbar-inverse bg-inverse" style="background: black;">
       <a class="navbar-brand" style=" color: white">SKLEP SPORTOWY</a>
+      <app-cart-summary></app-cart-summary>
     </div>
   </div>
 
@@ -22,9 +23,11 @@
         <div *ngFor="let product of products" class="card m-1 p-1 bg-light">
           <h4 class="card-header">{{product.name}}
             <span
-              class="badge badge-pill badge-primary float-right">{{product.price | currency:"zł":true:"2.2-2"}}</span>
+              class="badge badge-pill badge-primary float-sm-end">{{product.price | currency:"zł":true:"2.2-2"}}</span>
           </h4>
-          <div class="card-text bg-white p-1"> {{product.description}}</div>
+          <div class="card-text bg-white p-1"> {{product.description}}
+          <button class="btn btn-success btn-sm float-sm-end" (click)="addProductToCart(product)" >Add to cart</button>
+          </div>
         </div>
         <div>
           <select class="form-control" [value]="productsPerPage" (change)="changePageSize($any($event).target.value)">
