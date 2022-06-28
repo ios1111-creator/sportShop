@@ -26,13 +26,13 @@
         <td>
           <input type="number"
                  [value]="line.quantity"
-                 (change)="cart.updateQuantity(line.product,$any($event).target.value)">
+                 (change)="cart.updateQuantity(line.product,$event)">
         </td>
         <td>
           {{line.product.name}}
         </td>
         <td>
-          {{line.product.price | currency: "zł":"symbol":"2.2-2"}}
+          {{line.product.price | currency: "zł": "symbol":"2.2-2"}}
         </td>
         <td>
           {{line.lineTotal | currency:"zł":"symbol":"2.2-2"}}
@@ -52,8 +52,8 @@
       </tfoot>
     </table>
   </div>
-<div class="text-center">
-  <button class="btn btn-primary" routerLink="/store">Continue shopping</button>
-  <button class="btn btn-outline-secondary" routerLink="/checkout" [disabled]="cart.lines.length == 0">Go to basket</button>
-</div>
+  <div class="text-center">
+    <button class="btn btn-primary" routerLink="/store">Continue shopping</button>
+    <button class="btn btn-outline-secondary" routerLink="/checkout" [disabled]="cart.lines.length == 0">Go to basket</button>
+  </div>
 </div>

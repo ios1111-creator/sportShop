@@ -1,9 +1,15 @@
-.categories{
+.categories {
   color: white;
+  display: inline-grid;
   /*height: 45px;*/
   text-align: center;
   line-height: 43px;
 }
-.badge{
+
+.badge {
   background-color: royalblue;
+}
+
+.addCart {
+  margin-right: 14px;
 }

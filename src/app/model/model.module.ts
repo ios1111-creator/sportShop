@@ -1,11 +1,12 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {ProductRepository} from "./product.repository";
 import {StaticDataSource} from "./static.datasource";
 import {CartModel} from "./cart.model";
-import { OrderModel } from './order.model';
+import {OrderModel} from './order.model';
 import {OrderRepository} from "./order.repository";
-
+import {RestDatasource} from "./rest.datasource";
+import { AuthService } from './auth.service';
 
 
 @NgModule({
@@ -15,10 +16,13 @@ import {OrderRepository} from "./order.repository";
   ],
   providers: [
     ProductRepository,
-    StaticDataSource,
     CartModel,
     OrderModel,
-    OrderRepository
+    OrderRepository,
+    {provide: StaticDataSource, useClass: RestDatasource},
+    RestDatasource,
+    AuthService
   ]
 })
-export class ModelModule { }
+export class ModelModule {
+}

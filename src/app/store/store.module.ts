@@ -3,12 +3,12 @@ import {CommonModule} from '@angular/common';
 import {StoreComponent} from "./store.component";
 import {FormsModule} from "@angular/forms";
 import {BrowserModule} from "@angular/platform-browser";
-import {CartDetailComponent} from "./cartDetail.component";
-import {CheckoutComponent} from "./checkout.component";
 import {RouterModule} from "@angular/router";
 import {StoreFirstGuard} from "../store-first.guard";
-import {CartSummaryComponent} from "./cartSummary.component";
 import {CounterDirective} from "./counter.directive";
+import {CartDetailComponent} from "./cart-detail/cart-detail.component";
+import {CartSummaryComponent} from "./cart-summary/cart-summary.component";
+import {CheckoutComponent} from "./checkout/checkout.component";
 
 
 @NgModule({
@@ -24,20 +24,7 @@ import {CounterDirective} from "./counter.directive";
     CommonModule,
     FormsModule,
     BrowserModule,
-    RouterModule.forRoot([
-      {
-        path: "store", component: StoreComponent, canActivate: [StoreFirstGuard]
-      },
-      {
-        path: "cart", component: CartDetailComponent, canActivate: []
-      },
-      {
-        path: "checkout", component: CheckoutComponent, canActivate: []
-      },
-      {
-        path: "**", redirectTo: "/store"
-      }
-    ])
+    RouterModule,
   ],
   exports: [
     CounterDirective,

@@ -8,13 +8,15 @@
 
   <div class="row">
     <div class="col-3 p-2 ">
-      <div class="col-xs-3  p-a-1 categories">
-        <button class="btn btn-block btn-outline-primary" (click)="changeCategory()">All Categories</button>
+      <div class="col-xs-3  p-a-1 categories ">
+        <button class="btn btn-block btn-outline-primary " (click)="changeCategory()">All Categories</button>
         <button *ngFor="let cat of categories"
-                class="btn btn-block btn-outline-primary"
+                class="btn btn-block btn-outline-primary "
                 [class.active]="cat==selectedCategory"
                 (click)="changeCategory(cat)"
-        >{{cat}}</button>
+
+        >{{cat}} </button>
+        <button class="btn btn-danger" routerLink="/admin">Administration</button>
       </div>
 
     </div>
@@ -26,7 +28,7 @@
               class="badge badge-pill badge-primary float-sm-end">{{product.price | currency:"zł":true:"2.2-2"}}</span>
           </h4>
           <div class="card-text bg-white p-1"> {{product.description}}
-          <button class="btn btn-success btn-sm float-sm-end" (click)="addProductToCart(product)" >Add to cart</button>
+          <button class="btn btn-success btn-sm float-sm-end addCart" (click)="addProductToCart(product)" >Add to cart</button>
           </div>
         </div>
         <div>

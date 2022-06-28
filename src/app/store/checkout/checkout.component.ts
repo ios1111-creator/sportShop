@@ -1,13 +1,15 @@
-import {Component} from "@angular/core";
-import {OrderRepository} from "../model/order.repository";
-import {OrderModel} from "../model/order.model";
+import { Component } from '@angular/core';
+import {OrderRepository} from "../../model/order.repository";
+import {OrderModel} from "../../model/order.model";
 import {NgForm} from "@angular/forms";
 
 @Component({
-  templateUrl: "checkout.component.html",
-  styleUrls: ["checkout.component.css"]
+  selector: 'app-checkout',
+  templateUrl: './checkout.component.html',
+  styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent {
+
   orderSent: boolean = false;
   submitted: boolean = false;
 
@@ -27,4 +29,5 @@ export class CheckoutComponent {
       })
     }
   }
+
 }
